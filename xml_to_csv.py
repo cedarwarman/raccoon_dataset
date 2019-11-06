@@ -14,10 +14,10 @@ def xml_to_csv(path):
                      int(root.find('size')[0].text),
                      int(root.find('size')[1].text),
                      member[0].text,
-                     int(member[4][0].text),
-                     int(member[4][1].text),
-                     int(member[4][2].text),
-                     int(member[4][3].text)
+                     float(member[4][0].text),
+                     float(member[4][1].text),
+                     float(member[4][2].text),
+                     float(member[4][3].text)
                      )
             xml_list.append(value)
     column_name = ['filename', 'width', 'height', 'class', 'xmin', 'ymin', 'xmax', 'ymax']
@@ -28,7 +28,7 @@ def xml_to_csv(path):
 def main():
     image_path = os.path.join(os.getcwd(), 'annotations')
     xml_df = xml_to_csv(image_path)
-    xml_df.to_csv('raccoon_labels.csv', index=None)
+    xml_df.to_csv('test_output.csv', index=None)
     print('Successfully converted xml to csv.')
 
 
